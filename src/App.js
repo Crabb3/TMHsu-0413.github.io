@@ -19,11 +19,12 @@ const appearblur = keyframes`
 `;
 const appearfromtop = keyframes`
   0%{
-    height:0;
+    opacity: 0;
+    height: 0;
   }
   100%{
-    height: 50vh;
     opacity: 1;
+    height: 43vh;
   }
 `;
 const Header = styled.div`
@@ -32,8 +33,8 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation-name: ${appearblur};
-  animation-duration: 2s;
+  animation: ${appearblur} 2s ease-in;
+
 `;
 const Vanta = styled.div`
   z-index: 0;
@@ -69,10 +70,7 @@ const ButtonContainer = styled.div`
   opacity: 0;
   justify-content: center;
   align-items: center;
-  animation-name: ${appearblur};
-  animation-delay: 2s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+  animation: ${appearblur} .5s linear 2s forwards;
 `;
 const Button = styled.button`
   position: relative;
@@ -91,22 +89,16 @@ const Button = styled.button`
 const Content = styled.div`
   margin: 0 auto;
   opacity: 0;
+  height:40vh;
   position: relative;
   display: flex;
   border: 1px solid #fffa;
   justify-content: center;
   align-items: center;
-  height: 40vh;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   width: 430px;
-  animation-name: ${appearfromtop};
-  animation-delay: 2.5s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  :first-child {
-    animation-delay: 4s;
-  }
+  animation: ${appearfromtop} .5s ease-in-out 2.5s forwards;
 `;
 const Background = styled.div`
   position: absolute;
@@ -124,7 +116,7 @@ function App() {
   const myRef = useRef(null);
 
   useEffect(() => {
-    document.title = "HTM profile";
+    document.title = "TMHsu website";
   });
   useEffect(() => {
     if (!vantaEffect) {

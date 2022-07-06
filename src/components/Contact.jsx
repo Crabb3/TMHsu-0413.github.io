@@ -18,6 +18,7 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 30px;
   width: 300px;
   gap:.5em;
 `;
@@ -50,22 +51,21 @@ const Link = styled.a`
   position: relative;
   display: flex;
   justify-content: center;
-  border-radius: 30px;
   font-size: 1.2rem;
   padding: 1rem;
   width: 100%;
+  height: 100%;
   color: #fff;
   &:hover{
       ${Topleft}::before,${BottomRight}::before{
           width:100%;
           height: 2px;
-          border-radius: 30px;
-          transition: all .5s ease;
+          transition: all .5s linear;
       }
       ${Topleft}::after,${BottomRight}::after{
           height: 100%;
           width: 2px;
-          transition: all .5s ease;
+          transition: all .5s linear;
       }
   }
 `;
