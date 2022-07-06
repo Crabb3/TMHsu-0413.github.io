@@ -21,11 +21,13 @@ const List = styled.div`
   height:6rem;
   display:flex;
   flex-direction: column;
+  font-weight: 500;
   justify-content: center;
   align-items: center;
 `
 const Item = styled.li`
   list-style: none;
+  color: #fff;
 `;
 const Profile = () => {
   return (

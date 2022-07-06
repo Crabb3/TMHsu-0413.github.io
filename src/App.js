@@ -2,13 +2,35 @@ import HTM from "./image/htm.JPG";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Profile from "./components/Profile";
+import { keyframes } from "styled-components";
 
+const appearblur = keyframes`
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100%{
+    opacity: 1;
+    filter:blur(0);
+  }
+`
+const appearfromtop = keyframes`
+  0%{
+    height:0;
+  }
+  100%{
+    height: 50vh;
+    opacity: 1;
+  }
+`
 const Header = styled.div`
   margin-top: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation-name: ${appearblur};
+  animation-duration: 2s;
 `;
 const ImageContainer = styled.div`
   height: 15rem;
@@ -33,8 +55,13 @@ const Name = styled.h1`
 const ButtonContainer = styled.div`
   margin-top: 10px;
   display: flex;
+  opacity: 0;
   justify-content: center;
   align-items: center;
+  animation-name: ${appearblur};
+  animation-delay: 2s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `;
 const Button = styled.button`
   position: relative;
@@ -54,20 +81,26 @@ const Button = styled.button`
 `;
 const Content = styled.div`
   margin:0 auto;
+  opacity: 0;
   position: relative;
   display: flex;
+  border:1px solid #fffa;
   justify-content: center;
   align-items: center;
   height:50vh;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   width:30%;
+  animation-name: ${appearfromtop};
+  animation-delay: 3s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `
 const Background = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #fffa;
+  background-color: #000a;
   border-radius: 7px;
   filter: blur(8px) saturate(260%) contrast(280%);
   box-shadow: rgb(28 32 93 / 24%) 0px 2px 8px 0px;
