@@ -1,7 +1,9 @@
 import HTM from "./image/htm.JPG";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Profile from "./components/Profile";
+import BIRDS from "vanta/dist/vanta.birds.min";
+import * as THREE from "three";
 import { keyframes } from "styled-components";
 
 const appearblur = keyframes`
@@ -13,7 +15,7 @@ const appearblur = keyframes`
     opacity: 1;
     filter:blur(0);
   }
-`
+`;
 const appearfromtop = keyframes`
   0%{
     height:0;
@@ -22,7 +24,7 @@ const appearfromtop = keyframes`
     height: 50vh;
     opacity: 1;
   }
-`
+`;
 const Header = styled.div`
   margin-top: 1em;
   display: flex;
@@ -31,6 +33,14 @@ const Header = styled.div`
   justify-content: center;
   animation-name: ${appearblur};
   animation-duration: 2s;
+`;
+const Vanta = styled.div`
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `;
 const ImageContainer = styled.div`
   height: 15rem;
@@ -60,42 +70,43 @@ const ButtonContainer = styled.div`
   align-items: center;
   animation-name: ${appearblur};
   animation-delay: 2s;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 `;
 const Button = styled.button`
   position: relative;
   color: #fff;
-  width:15%;
+  width: 15%;
+  border-radius: 4px;
   background-color: #000a;
   border: 1px solid #fffa;
+  box-shadow: inset 0 0 0 0 #090a;
+  transition: ease-out 0.5s;
   padding: 0.2rem 0.4rem;
   :hover {
-    background-color: #090a;
-    transition: 0.5s ease-in-out;
-  }
-  :focus {
-    background-color: #090a;
-    color:#fff;
+    box-shadow: inset 300px 0 0 0 #090a;
   }
 `;
 const Content = styled.div`
-  margin:0 auto;
+  margin: 0 auto;
   opacity: 0;
   position: relative;
   display: flex;
-  border:1px solid #fffa;
+  border: 1px solid #fffa;
   justify-content: center;
   align-items: center;
-  height:50vh;
+  height: 40vh;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
-  width:30%;
+  width: 430px;
   animation-name: ${appearfromtop};
-  animation-delay: 3s;
+  animation-delay: 2.5s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-`
+  :first-child {
+    animation-delay: 4s;
+  }
+`;
 const Background = styled.div`
   position: absolute;
   width: 100%;
@@ -105,14 +116,45 @@ const Background = styled.div`
   filter: blur(8px) saturate(260%) contrast(280%);
   box-shadow: rgb(28 32 93 / 24%) 0px 2px 8px 0px;
   z-index: -1;
-`
+`;
 function App() {
   const [page, setPage] = useState(0);
+  const [vantaEffect, setVantaEffect] = useState(0);
+  const myRef = useRef(null);
+
   useEffect(() => {
     document.title = "HTM profile";
   });
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        BIRDS({
+          el: myRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          backgroundColor: 0x3c77c3,
+          birdSize: 1.2,
+          wingSpan: 18.0,
+          speedLimit: 6.0,
+          separation: 17.0,
+          quantity: 2.0,
+          backgroundAlpha: 0.0,
+        })
+      );
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
   return (
     <React.Fragment>
+      <Vanta ref={myRef}></Vanta>
       <Header>
         <ImageContainer>
           <Image src={HTM} />

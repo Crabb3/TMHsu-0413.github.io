@@ -33,7 +33,7 @@ const Profile = () => {
   return (
     <Content>
       <GridContainer>
-        <SchoolIcon fontSize="large"></SchoolIcon>
+        <SchoolIcon fontSize="large" color="secondary" />
         <List>
           <Item>KSVS CS</Item>
           <Item>NFU CSIE</Item>
@@ -41,7 +41,7 @@ const Profile = () => {
         </List>
       </GridContainer>
       <GridContainer>
-        <HouseIcon fontSize="large" />
+        <HouseIcon fontSize="large" color="secondary"/>
           <List>
             <Item>Kaosiung</Item>
             <Item>Chiayi</Item>
