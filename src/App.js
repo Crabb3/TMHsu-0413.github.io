@@ -2,6 +2,7 @@ import HTM from "./image/htm.JPG";
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Profile from "./components/Profile";
+import Contact from "./components/Contact";
 import BIRDS from "vanta/dist/vanta.birds.min";
 import * as THREE from "three";
 import { keyframes } from "styled-components";
@@ -76,7 +77,7 @@ const ButtonContainer = styled.div`
 const Button = styled.button`
   position: relative;
   color: #fff;
-  width: 15%;
+  width:215px;
   border-radius: 4px;
   background-color: #000a;
   border: 1px solid #fffa;
@@ -168,7 +169,7 @@ function App() {
       <Content>
         <Background />
         {page == 0 && <Profile />}
-        {page == 1 && <div>0</div>}
+        {page == 1 && <Contact />}
       </Content>
     </React.Fragment>
   );

@@ -47,8 +47,23 @@ const Profile = () => {
             <Item>Chiayi</Item>
           </List>
       </GridContainer>
-      <div>2</div>
-      <div>3</div>
+
+      <GridContainer>
+        <SchoolIcon fontSize="large" color="secondary" />
+        <List>
+          <Item>KSVS CS</Item>
+          <Item>NFU CSIE</Item>
+          <Item>CCU CSIE</Item>
+        </List>
+      </GridContainer>
+      <GridContainer>
+        <SchoolIcon fontSize="large" color="secondary" />
+        <List>
+          <Item>KSVS CS</Item>
+          <Item>NFU CSIE</Item>
+          <Item>CCU CSIE</Item>
+        </List>
+      </GridContainer>
     </Content>
   );
 };
