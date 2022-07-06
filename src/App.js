@@ -75,7 +75,8 @@ const ButtonContainer = styled.div`
 const Button = styled.button`
   position: relative;
   color: #fff;
-  width:215px;
+  min-width:150px;
+  width: 15%;
   border-radius: 4px;
   background-color: #000a;
   border: 1px solid #fffa;
@@ -97,7 +98,8 @@ const Content = styled.div`
   align-items: center;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
-  width: 430px;
+  min-width: 300px;
+  width:30%;
   animation: ${appearfromtop} .5s ease-in-out 2.5s forwards;
 `;
 const Background = styled.div`
