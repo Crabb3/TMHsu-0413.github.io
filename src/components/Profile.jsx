@@ -61,14 +61,14 @@ const Profile = () => {
         </List>
       </GridContainer>
       <GridContainer>
-        <HouseIcon fontSize="large" color="secondary"/>
-          <List>
-            <Item>Kaosiung</Item>
-            <Item>Chiayi</Item>
-          </List>
+        <HouseIcon fontSize="large" color="secondary" />
+        <List>
+          <Item>Kaosiung</Item>
+          <Item>Chiayi</Item>
+        </List>
       </GridContainer>
       <ExperienceContainer>
-        <WorkIcon fontSize="large" color="secondary"/>
+        <WorkIcon fontSize="large" color="secondary" />
         <List>
           <Item>NFU CC (Part time)</Item>
           <Item>NCSIST (Intern)</Item>

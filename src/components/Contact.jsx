@@ -1,5 +1,5 @@
 import React from "react";
-import styled,{keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import fb_svg from "../image/fb.svg";
 import gmail_svg from '../image/gmail.svg'
 import github_svg from '../image/github.svg'
