@@ -34,7 +34,6 @@ const Header = styled.div`
   align-items: center;
   justify-content: center;
   animation: ${appearblur} 2s ease-in;
-
 `;
 const Vanta = styled.div`
   z-index: 0;
@@ -70,27 +69,26 @@ const ButtonContainer = styled.div`
   opacity: 0;
   justify-content: center;
   align-items: center;
-  animation: ${appearblur} .5s linear 2s forwards;
+  animation: ${appearblur} 0.5s linear 2s forwards;
 `;
 const Button = styled.button`
   position: relative;
   color: #fff;
-  min-width:150px;
+  min-width: 150px;
   width: 15%;
   border-radius: 4px;
   background-color: #000a;
   border: 1px solid #fffa;
-  box-shadow: inset 0 0 0 0 #090a;
-  transition: ease-out 0.5s;
   padding: 0.2rem 0.4rem;
   :hover {
-    box-shadow: inset 300px 0 0 0 #090a;
+    background-color: gray;
+    transition: 0.3s;
   }
 `;
 const Content = styled.div`
   margin: 0 auto;
   opacity: 0;
-  height:40vh;
+  height: 40vh;
   position: relative;
   display: flex;
   border: 1px solid #fffa;
@@ -99,8 +97,8 @@ const Content = styled.div`
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   min-width: 300px;
-  width:30%;
-  animation: ${appearfromtop} .5s ease-in-out 2.5s forwards;
+  width: 30%;
+  animation: ${appearfromtop} 0.5s ease-in-out 2.5s forwards;
 `;
 const Background = styled.div`
   position: absolute;
@@ -140,7 +138,7 @@ function App() {
           separation: 17.0,
           quantity: 2.0,
           backgroundAlpha: 0.0,
-        })
+        }),
       );
     }
     return () => {
@@ -162,8 +160,8 @@ function App() {
       </ButtonContainer>
       <Content>
         <Background />
-        {page == 0 && <Profile />}
-        {page == 1 && <Contact />}
+        {page === 0 && <Profile />}
+        {page === 1 && <Contact />}
       </Content>
     </React.Fragment>
   );
