@@ -116,7 +116,7 @@ function App() {
   const myRef = useRef(null);
 
   useEffect(() => {
-    document.title = "TMHsu website";
+    document.title = "Tang-Ming Hsu";
   });
   useEffect(() => {
     if (!vantaEffect) {
